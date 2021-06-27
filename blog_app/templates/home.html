@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+        background-image : url("{% static 'blog_app/images/blog5.jpg' %}");
+        background-size : cover;
+        background-repeat : no-repeat;
+        }
+
+        h1{
+        font-size : 30px;
+        position : absolute;
+        left:425px;
+        top : 90px;
+        border-style : groove;
+        border : 2px solid;
+        color : black;
+        font-family : "Courier New";
+        }
+
+        .button1{
+        display : inline-block;
+        border-radius: 4px;
+        padding: 15px 25px;
+        color :  86ec93;
+        border : 2px solid;
+        font-size: 18px;
+        position: absolute;
+        left: 500px;
+        top: 180px;
+        line-height : 150%;
+        background-color :rgba(255,255,255,0);
+        cursor :pointer;
+       font-family : Sans-serif;
+
+
+        }
+         .button2{
+        display : inline-block;
+        border-radius: 4px;
+        padding: 15px 25px;
+        color : 86ec93;
+        border : 2px solid;
+        font-size: 18px;
+        line-height : 150%;
+        background-color :rgba(255,255,255,0);
+        cursor :pointer;
+        position: absolute;
+        left: 705px;
+        top: 180px;
+        font-family : Sans-serif;
+        }
+             .button3{
+        display : inline-block;
+        border-radius: 4px;
+        padding: 15px 25px;
+        color : 86ec93;
+        border : 2px solid;
+        font-size: 18px;
+        line-height : 150%;
+        background-color :rgba(255,255,255,0);
+
+        cursor :pointer;
+        position: absolute;
+        left: 1175px;
+        top: 10px;
+        font-family : Sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="mydiv">
+
+    <h1>SIMPLE BLOGGING SYSTEM PROJECT</h1>
+<form action ="/addblog" method="post">
+    {% csrf_token %}
+    <button class="button button1">Add Blog</button>
+</form>
+<br><br>
+<form action ="/displayblog">
+    <button class="button button2">Display Blog</button>
+</form>
+    <form action ="/admin" >
+         <button class="button button3">Admin Panel</button>
+    </form>
+</div>
+</body>
+</html>

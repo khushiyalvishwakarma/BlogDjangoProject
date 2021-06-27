@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+        background-image : url("{% static 'blog_app/images/blog3.PNG' %}");
+        background-size : cover;
+        background-repeat : no-repeat;
+        }
+        h2{
+        position: absolute;
+        left: 430px;
+        top: 130px;
+
+        }
+          h1{
+        font-size : 30px;
+        position : absolute;
+        left:450px;
+        top : 40px;
+        border-style : groove;
+        border : 1px solid;
+        color : black;
+        font-family : "Courier New";
+        }
+
+         .button1{
+        display : inline-block;
+        border-radius: 4px;
+        padding: 10px 15px;
+        color :  86ec93;
+        border : 2px solid;
+        font-size: 18px;
+        position: absolute;
+        left: 650px;
+        top: 480px;
+        line-height : 150%;
+        background-color :rgba(255,255,255,0);
+        cursor :pointer;
+        font-family : Sans-serif;
+        }
+         .button2{
+         background-color: rgba(255,255,255,0);
+         border: 2px solid;
+         font-size : 30px;
+         padding: 10px 14px;
+         position: absolute;
+         left: 1250px;
+         top: 15px;
+          border-radius : 5px;
+        }
+
+        #id_author{
+      width: 300px;
+      height: 40px;
+      font-size : 20px;
+      position: absolute;
+        left: 115px;
+        top: 15px;
+}
+    #id_title{
+    width: 300px;
+    height: 40px;
+    font-size : 20px;
+    position: absolute;
+        left: 115px;
+        top: 75px;
+}
+    #id_task{
+    width: 300px;
+    height: 150px;
+    font-size : 20px;
+    position: absolute;
+        left: 115px;
+        top: 135px;
+        text-color : red;
+}
+
+    </style>
+</head>
+<body>
+<h1>---Insert your blog here---</h1>
+<form action ="/insertblog" method="post">
+     <h2>
+         {% csrf_token %}
+      {{form.as_p}}
+     </h2>
+       <button class="button button1">Add</button>
+
+</form>
+<form action="/home">
+    <button class="button button2"><i class="fa fa-home"></i></button>
+</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      body{
+        background-image : url("{% static 'blog_app/images/blog1.PNG' %}");
+        background-size : cover;
+        background-repeat : no-repeat;
+        background-attachment : fixed;
+        }
+             h1{
+        font-size : 25px;
+        position : absolute;
+        left:670px;
+        top : 40px;
+        border-style : groove;
+        border : 1px solid;
+        color : black;
+        font-family : "Courier New";
+        }
+        .myDiv{
+     text-align:center;
+     border : 2px solid;
+     font-size:25px;
+     width : 360px;
+     position: absolute;
+        left: 700px;
+        top: 115px;
+
+    }
+      .button{
+        display : inline-block;
+        border-radius: 4px;
+        padding: 15px 25px;
+        border : 2px solid;
+        font-size: 18px;
+        position: absolute;
+        left: 140px;
+        top: 390px;
+        cursor :pointer;
+        font-family : Sans-serif;
+        }
+
+     #id_author{
+     width: 300px;
+     height: 35px;
+     font-size : 20px;
+}
+     #id_title{
+     width: 300px;
+     height: 35px;
+     font-size : 20px;
+}
+     #id_task{
+     width: 300px;
+     height: 85px;
+     font-size : 20px;
+
+}
+    </style>
+</head>
+<body>
+<h1>---Update your blog here---</h1>
+<div class="myDiv">
+<form action="/updatedata/{{data.id}}" method="post">
+ {% csrf_token %}
+    <p><label for="id_author">Author:</label> <input type="text" name="author" maxlength="30" required id="id_author" value="{{data.author}}"></p>
+<p><label for="id_title">Title:</label> <input type="text" name="title" maxlength="100" required id="id_title" value="{{data.title}}"></p>
+<p><label for="id_task">Task:</label> <textarea name="task" cols="40" rows="10" required id="id_task">{{data.task}}
+</textarea></p>
+<button class="button">Update</button>
+</form>
+</div>
+</body>
+</html>

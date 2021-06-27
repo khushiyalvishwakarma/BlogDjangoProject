@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body{
+        background-image : url("{% static 'blog_app/images/blog4.PNG' %}");
+        background-size : cover;
+        background-repeat : no-repeat;
+        background-attachment : fixed;
+        }
+
+        .mydiv{
+        font-size: 24px;
+        border : 2px outset black;
+        width : 100%;
+
+        }
+        a{
+        color : black;
+        }
+
+        .button1{
+         background-color: rgba(255,255,255,0);
+        border: 2px solid;
+        font-size : 25px;
+        padding: 10px 14px;
+        position: absolute;
+        left: 1235px;
+        top: 10px;
+        position : fixed;
+         border-radius : 5px;
+
+        }
+
+        .btn-success{
+  box-sizing: border-box;
+  border-radius : 5px;
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 18px;
+  padding: 10px 14px 10px 40px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+
+    </style>
+</head>
+<body>
+
+<center>
+
+    <form action = "/search">
+    <select  name="query" style="width:240px; height:41px ;border-radius: 5px">
+    <option value="query">--select title--</option>
+    {% for i in data %}
+    <option>{{i.title}}</option>
+    {% endfor %}
+        </select>
+    <button class="btn btn-success" type="submit">Search</button>
+        </form>
+
+    <br><br>
+{% for i in data %}
+ <div class="mydiv">
+      <p>Created_at : {{i.created}} </p>
+      <p>Updated_at : {{i.updated}} </p>
+      <p>Author : {{i.author}}</p>
+      <p>Title  : {{i.title}}</p>
+      <p>Task   : {{i.task}}</p>
+     <a href="/edit/{{i.id}}"><i class="fa fa-edit"></i></a>&nbsp&nbsp
+    <a href="/delete/{{i.id}}"><i class="fa fa-trash"></i></a>
+   <br>
+ </div>
+    <br>
+{% endfor %}
+</center>
+
+<form action="/home">
+    <button class="button button1"><i class="fa fa-home"></i></button>
+</form>
+</body>
+</html>
